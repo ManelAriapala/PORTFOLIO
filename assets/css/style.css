@@ -1,0 +1,945 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Raleway:wght@300;400&family=Rock+Salt&display=swap");
+.whitespace {
+  width: 100%;
+  height: 100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background-color: #B9D6C4;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #FBFBFD;
+  color: #B9D6C4;
+  text-align: center;
+  z-index: 200;
+}
+
+.loader .load-text span {
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 5vw;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+h1 {
+  font-family: 'Montserrat';
+  font-size: 7vw;
+  font-weight: 800;
+}
+
+h2 {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #3F4140;
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* header */
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: transparent;
+  z-index: 3;
+  padding: 1rem;
+}
+
+header .logo {
+  width: 50px;
+  height: 50px;
+  z-index: 4;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header #toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  z-index: 11;
+}
+
+header #toggle::before, header #toggle::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  background-color: #3F4140;
+  transition: 0.3s;
+}
+
+header #toggle::after {
+  transform: translateY(5px);
+}
+
+header #toggle::before {
+  transform: translateY(-5px);
+}
+
+header #toggle.active::before {
+  transform: translateY(0px) rotate(45deg);
+}
+
+header #toggle.active::after {
+  transform: translateY(0px) rotate(-45deg);
+}
+
+#navbar {
+  position: fixed;
+  top: -100%;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  transition: 0.3s all ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FBFBFD;
+  z-index: 10;
+}
+
+#navbar.active {
+  height: 100vh;
+  top: 0;
+  width: 100%;
+}
+
+#navbar ul {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#navbar ul li {
+  list-style: none;
+}
+
+#navbar ul li a {
+  color: #EF5449;
+  text-decoration: none;
+  height: 80px;
+  line-height: 60px;
+  display: inline-block;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 0 15px;
+  letter-spacing: 2px;
+  transition: 0.3s all ease;
+}
+
+#navbar ul li a:hover {
+  color: #3F4140;
+}
+
+/* home */
+#home {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home .wrap {
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  z-index: -1;
+}
+
+#home .line {
+  width: 90vw;
+  display: flex;
+}
+
+#home .line .left,
+#home .line .right {
+  width: 45vw;
+  overflow: hidden;
+  display: inline-block;
+}
+
+#home .line .left {
+  color: #FBFBFD;
+  transform: skew(0deg, -15deg);
+}
+
+#home .line .left .content {
+  width: 90vw;
+  text-align: center;
+}
+
+#home .line .left .content h1 {
+  color: #FBFBFD;
+  background: #636363;
+  text-shadow: 1px 4px 4px #4c4c4c;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+#home .line .right {
+  color: #3F4140;
+  transform: skew(0deg, 15deg);
+}
+
+#home .line .right .content {
+  width: 90vw;
+  text-align: center;
+  transform: translate(-45vw);
+}
+
+#home .line .right .content h1 {
+  color: transparent;
+  background: #3F4140;
+  text-shadow: 1px 4px 4px #4c4c4c;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+
+#home .line span {
+  display: inline-block;
+  font-family: 'Montserrat';
+  font-size: 6vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.8;
+  transition: ease-in-out 0.6s;
+}
+
+#home .social-media {
+  position: relative;
+  bottom: -210px;
+  right: -5px;
+  width: 20px;
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#home .social-media ul {
+  position: relative;
+  list-style: none;
+}
+
+#home .social-media ul li {
+  margin: 15px 0;
+  display: inline-block;
+}
+
+#home .social-media ul li a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #3F4140;
+  text-shadow: 1px 4px 4px #4c4c4c;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  z-index: 10;
+  mix-blend-mode: difference;
+  transition: all 0.5s ease;
+}
+
+#home .social-media ul li a:hover {
+  font-size: 17px;
+  color: #EF5449;
+}
+
+/* ABOUT */
+#about .container {
+  width: 90%;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+}
+
+#about .container .right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#about .container .right figure {
+  width: 280px;
+  height: 380px;
+  background-color: #eaeaea;
+  padding: 19px 19px 40px 19px;
+  margin-bottom: 2rem;
+  transition: 0.3s all ease;
+  z-index: 1;
+  -webkit-box-shadow: 5px 5px 5px #473144;
+  -moz-box-shadow: 5px 5px 5px #473144;
+  box-shadow: 5px 5px 5px #473144;
+}
+
+#about .container .right figure img {
+  width: 100%;
+  filter: grayscale(1);
+}
+
+#about .container .right figure figcaption {
+  font-family: 'Rock Salt', cursive;
+  font-size: 18px;
+  text-align: center;
+  color: #c2c2c2;
+  margin-top: 15px;
+}
+
+#about .container .right figure figcaption span {
+  color: red;
+}
+
+#about .container .left {
+  width: 100%;
+  padding: 2rem;
+  background-color: transparent;
+  color: #3F4140;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+  inset: 0;
+}
+
+#about .container .left::before, #about .container .left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 3px solid #3F4140;
+}
+
+#about .container .left::after {
+  transform: translate(4px, 4px);
+}
+
+#about .container .left::before {
+  transform: translate(-4px, -4px);
+}
+
+#about .container .left p {
+  font-size: 14px;
+  text-align: justify;
+}
+
+@media only screen and (min-width: 769px) {
+  #about {
+    width: 100%;
+    min-height: 100vh;
+  }
+  #about .container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #about .container .right {
+    width: 30%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -15px;
+  }
+  #about .container .right figure {
+    transform: rotate(-10deg);
+  }
+  #about .container .left {
+    width: 70%;
+    height: 600px;
+    inset: 0;
+    margin: 40px 0;
+    padding: 2rem;
+  }
+  #about .container .left p {
+    font-size: 15px;
+    text-align: justify;
+  }
+}
+
+/* PORTFOLIO */
+#portfolio {
+  flex-direction: column;
+  padding: 2rem;
+}
+
+#portfolio h2 {
+  width: 100%;
+}
+
+#portfolio .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 1rem;
+}
+
+#portfolio .container .proj_container {
+  margin: 1rem;
+  padding: 1rem;
+  height: 300px;
+  transform: scale(1);
+  transition: all .25s linear;
+}
+
+#portfolio .container #proj1 .proj_bg,
+#portfolio .container #proj2 .proj_bg,
+#portfolio .container #proj3 .proj_bg,
+#portfolio .container #proj4 .proj_bg {
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .25s linear;
+  -webkit-box-shadow: 5px 5px 5px #473144;
+  -moz-box-shadow: 5px 5px 5px #473144;
+  box-shadow: 5px 5px 5px #473144;
+}
+
+#portfolio .container #proj1 .proj_bg img,
+#portfolio .container #proj2 .proj_bg img,
+#portfolio .container #proj3 .proj_bg img,
+#portfolio .container #proj4 .proj_bg img {
+  width: 100%;
+  height: 100%;
+}
+
+#portfolio .container #proj1 .proj_title,
+#portfolio .container #proj2 .proj_title,
+#portfolio .container #proj3 .proj_title,
+#portfolio .container #proj4 .proj_title {
+  width: 300px;
+  height: 50px;
+  background-color: #EF5449;
+  z-index: 2;
+  position: absolute;
+  right: -15px;
+  top: 100px;
+  display: flex;
+  align-items: center;
+  transition: all .4s linear;
+  box-shadow: 5px 5px 5px;
+}
+
+#portfolio .container #proj1 .proj_title p,
+#portfolio .container #proj2 .proj_title p,
+#portfolio .container #proj3 .proj_title p,
+#portfolio .container #proj4 .proj_title p {
+  letter-spacing: 1.5px;
+  font-weight: 300;
+  font-size: 24px;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+#portfolio .container #proj1 .proj_desc,
+#portfolio .container #proj2 .proj_desc,
+#portfolio .container #proj3 .proj_desc,
+#portfolio .container #proj4 .proj_desc {
+  width: 250px;
+  height: 30px;
+  background-color: #FBFBFD;
+  z-index: 2;
+  position: absolute;
+  right: -15px;
+  top: 145px;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transition: all 0.25s linear;
+  box-shadow: -5px 5px 15px #2d2f3a;
+}
+
+#portfolio .container #proj1 .proj_desc p,
+#portfolio .container #proj2 .proj_desc p,
+#portfolio .container #proj3 .proj_desc p,
+#portfolio .container #proj4 .proj_desc p {
+  color: #3F4140;
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-size: 12px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+#portfolio .container #proj1 .proj_info,
+#portfolio .container #proj2 .proj_info,
+#portfolio .container #proj3 .proj_info,
+#portfolio .container #proj4 .proj_info {
+  position: absolute;
+  bottom: 15%;
+  left: -2.5%;
+  opacity: 0.8;
+  background-color: #FBFBFD;
+  padding: 5%;
+  width: 90%;
+  height: 70%;
+  opacity: 0;
+  transition: all .35s linear .1s;
+  transform-origin: center center;
+  box-shadow: -5px 5px 15px #473144;
+}
+
+#portfolio .container #proj1 .proj_info ul,
+#portfolio .container #proj2 .proj_info ul,
+#portfolio .container #proj3 .proj_info ul,
+#portfolio .container #proj4 .proj_info ul {
+  margin: 0.5rem;
+}
+
+#portfolio .container #proj1:hover,
+#portfolio .container #proj2:hover,
+#portfolio .container #proj3:hover,
+#portfolio .container #proj4:hover {
+  cursor: pointer;
+}
+
+#portfolio .container #proj1:hover .proj_title,
+#portfolio .container #proj2:hover .proj_title,
+#portfolio .container #proj3:hover .proj_title,
+#portfolio .container #proj4:hover .proj_title {
+  transform: rotate(90deg);
+  top: 150px;
+  right: -130px;
+  height: 15%;
+  width: 300px;
+}
+
+#portfolio .container #proj1:hover .proj_desc,
+#portfolio .container #proj2:hover .proj_desc,
+#portfolio .container #proj3:hover .proj_desc,
+#portfolio .container #proj4:hover .proj_desc {
+  opacity: 0;
+}
+
+#portfolio .container #proj1:hover .proj_info,
+#portfolio .container #proj2:hover .proj_info,
+#portfolio .container #proj3:hover .proj_info,
+#portfolio .container #proj4:hover .proj_info {
+  opacity: 0.8;
+}
+
+/* contact */
+#contact {
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+#contact .postcard {
+  width: 90%;
+  height: 730px;
+  background-color: #FBFBFD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-shadow: 5px 5px 5px #473144;
+  -moz-box-shadow: 5px 5px 5px #473144;
+  box-shadow: 5px 5px 5px #473144;
+}
+
+#contact .postcard form {
+  width: 90%;
+  height: 680px;
+  border: 1px solid black;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#contact .postcard form .top {
+  flex-basis: 100%;
+  padding: 0;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#contact .postcard form .top h3 {
+  font-size: 22px;
+}
+
+#contact .postcard form .top .stamp {
+  width: 55px;
+  height: 65px;
+}
+
+#contact .postcard form .left,
+#contact .postcard form .right {
+  flex-basis: 100%;
+  padding: 1rem;
+}
+
+#contact .postcard form .left .orange,
+#contact .postcard form .right .orange {
+  color: #EF5449;
+  font-size: 16px;
+}
+
+#contact .postcard form .left .error-message,
+#contact .postcard form .right .error-message {
+  width: 100%;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #EF5449;
+  height: 14px;
+  display: inline-block;
+}
+
+#contact .postcard form .left {
+  border-bottom: 1px solid black;
+  border-right: 1px solid white;
+}
+
+#contact .postcard form .left textarea {
+  height: 130px;
+  resize: none;
+}
+
+#contact .postcard form label,
+#contact .postcard form input,
+#contact .postcard form textarea {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  border: none;
+  background-color: transparent;
+  font-family: 'Rock Salt', cursive;
+  font-size: 14px;
+}
+
+#contact .postcard form textarea,
+#contact .postcard form input {
+  padding: 5px;
+}
+
+#contact .postcard form label,
+#contact .postcard form #submit {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+#contact .postcard form #submit {
+  position: relative;
+  background-color: black;
+  color: #FBFBFD;
+  float: right;
+  font-weight: bold;
+  width: 100px;
+  padding: 10px;
+  margin-top: 1rem;
+  transition: all 0.3s ease-in;
+}
+
+#contact .postcard form #submit:hover {
+  background-color: #EF5449;
+}
+
+#contact .postcard form .required-field {
+  color: #EF5449;
+  margin-top: 20px;
+}
+
+#contact .table {
+  width: 90%;
+  margin-top: 2.5rem;
+  border: 1px solid #3F4140;
+  color: #3F4140;
+  display: grid;
+  grid-template: repeat(5, 1fr)/repeat(4, 1fr);
+  grid-template-areas: "A A A A" "B B B B" "C C D D" "E E E E" "F F G G";
+  text-align: center;
+}
+
+#contact .table h4,
+#contact .table p {
+  width: 100%;
+  display: block;
+}
+
+#contact .table h4 a,
+#contact .table p a {
+  color: #3F4140;
+}
+
+#contact .table h4 a:hover,
+#contact .table p a:hover {
+  color: #EF5449;
+}
+
+#contact .table h4 {
+  font-size: 16px;
+}
+
+#contact .table p {
+  font-size: 12px;
+}
+
+#contact .a {
+  grid-area: A;
+  border-bottom: 1px solid #3F4140;
+  padding-top: 2rem;
+}
+
+#contact .b {
+  grid-area: B;
+  border-bottom: 1px solid #3F4140;
+  padding-top: 2rem;
+}
+
+#contact .c {
+  grid-area: C;
+  padding-top: 2rem;
+}
+
+#contact .d {
+  grid-area: D;
+  border-left: 1px solid #3F4140;
+  padding-top: 2rem;
+}
+
+#contact .e {
+  grid-area: E;
+  border-bottom: 1px solid #3F4140;
+  border-top: 1px solid #3F4140;
+  padding-top: 2rem;
+}
+
+#contact .f {
+  grid-area: F;
+  border-right: 1px solid #3F4140;
+  padding-top: 2rem;
+}
+
+#contact .g {
+  grid-area: G;
+  padding-top: 2rem;
+}
+
+@media only screen and (min-width: 769px) {
+  #contact {
+    position: relative;
+    display: row;
+    z-index: 1;
+  }
+  #contact .postcard {
+    width: 900px;
+    height: 550px;
+    background-color: #FBFBFD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #contact .postcard form {
+    width: 95%;
+    height: 480px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem;
+    position: relative;
+  }
+  #contact .postcard form .top {
+    flex-basis: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #contact .postcard form .top h3 {
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+  #contact .postcard form .top .stamp {
+    width: 70px;
+    height: 80px;
+  }
+  #contact .postcard form .required-field {
+    font-size: 12px;
+  }
+  #contact .postcard form .left,
+  #contact .postcard form .right {
+    flex-basis: 50%;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  #contact .postcard form .left .error-message,
+  #contact .postcard form .right .error-message {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #EF5449;
+    height: 14px;
+    display: inline-block;
+  }
+  #contact .postcard form .left {
+    border-right: 1px solid black;
+    border-bottom: #FBFBFD;
+  }
+  #contact .postcard form label,
+  #contact .postcard form input,
+  #contact .postcard form textarea {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border: none;
+    background-color: transparent;
+    font-family: "Rock Salt", cursive;
+    font-size: 16px;
+  }
+  #contact .postcard form textarea {
+    height: 450px;
+    resize: none;
+  }
+  #contact .postcard form textarea,
+  #contact .postcard form input {
+    padding: 10px;
+  }
+  #contact .postcard form label,
+  #contact .postcard form #submit {
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+  }
+  #contact .postcard form #submit {
+    position: relative;
+    width: 180px;
+    padding: 10px 20px;
+    background-color: black;
+    color: #FBFBFD;
+    float: right;
+  }
+  #contact .postcard form #submit:hover {
+    background-color: #EF5449;
+  }
+  #contact .table {
+    width: 92%;
+    margin-top: 2.5rem;
+    border: 1px solid #3F4140;
+    color: #3F4140;
+    display: grid;
+    grid-template: repeat(2, 1fr)/repeat(8, 1fr);
+    grid-template-areas: "A A B B B B E E E E" "A A C C D D F F G G";
+  }
+  #contact .table h4,
+  #contact .table p {
+    width: 100%;
+    display: block;
+  }
+  #contact .table h4 a,
+  #contact .table p a {
+    color: #3F4140;
+  }
+  #contact .table h4 a:hover,
+  #contact .table p a:hover {
+    color: #EF5449;
+  }
+  #contact .table h4 {
+    font-size: 16px;
+  }
+  #contact .table p {
+    font-size: 12px;
+  }
+  #contact .a {
+    grid-area: A;
+    padding-top: 4rem;
+    border-right: 1px solid #3F4140;
+    border-bottom: transparent;
+  }
+  #contact .b {
+    grid-area: B;
+    border-right: 1px solid #3F4140;
+    padding-top: 2rem;
+  }
+  #contact .c {
+    grid-area: C;
+    padding-top: 2rem;
+  }
+  #contact .d {
+    grid-area: D;
+    border-right: 1px solid #3F4140;
+    padding-top: 2rem;
+  }
+  #contact .e {
+    grid-area: E;
+    border-bottom: 1px solid #3F4140;
+    border-top: transparent;
+    padding-top: 2rem;
+  }
+  #contact .f {
+    grid-area: F;
+    border-right: 1px solid #3F4140;
+    padding-top: 2rem;
+  }
+  #contact .g {
+    grid-area: G;
+    padding-top: 2rem;
+  }
+}
+
+.successMessage {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 0 2rem;
+}
